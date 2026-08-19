@@ -1,0 +1,8 @@
+1) ¿Por qué declaramos los atributos como private y no como public?
+Para encapsular el estado del objeto, protegerlo de accesos externos no controlados y permitir mantener la consistencia interna mediante métodos públicos.
+
+2) ¿Qué pasaría si quitaras el super() del constructor de Perro?
+No compilaría, porque Animal no tiene constructor sin parámetros y los atributos heredados quedarían sin inicializar.
+
+3) ¿Qué ventaja tiene sobreescribir toString() en lugar de crear un método con otro nombre?
+Permite que el objeto se represente automáticamente al imprimirlo o concatenarlo, siguiendo una convención estándar que facilita depuración y compatibilidad con otras APIs.
