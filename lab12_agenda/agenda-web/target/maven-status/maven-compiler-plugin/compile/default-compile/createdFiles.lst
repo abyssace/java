@@ -1,0 +1,4 @@
+com\gremio\agenda_web\model\Contacto.class
+com\gremio\agenda_web\repository\ContactoRepository.class
+com\gremio\agenda_web\controller\ContactoController.class
+com\gremio\agenda_web\AgendaWebApplication.class
