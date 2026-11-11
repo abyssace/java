@@ -1,0 +1,8 @@
+com/coleccion/ItemFixtures$1.class
+com/coleccion/service/PrestamoServiceTest.class
+com/coleccion/service/ItemServiceTest.class
+com/coleccion/util/DatabaseTest.class
+com/coleccion/dao/ItemDaoTest.class
+com/coleccion/ItemFixtures.class
+com/coleccion/AppSmokeTest.class
+com/coleccion/service/CsvServiceTest.class

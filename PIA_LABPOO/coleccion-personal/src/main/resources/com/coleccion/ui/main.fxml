@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coleccion.ui.MainController" styleClass="app-root">
+    <left>
+        <VBox prefWidth="230" spacing="16" styleClass="sidebar">
+            <padding><Insets top="28" right="22" bottom="24" left="22"/></padding>
+            <Label text="COLECCIÓN" styleClass="brand-kicker"/>
+            <Label text="Personal" styleClass="brand-title"/>
+            <Label text="Tus historias, juegos y cartas en un solo lugar." wrapText="true" maxWidth="185" styleClass="brand-subtitle"/>
+            <Separator styleClass="sidebar-separator"/>
+            <Label text="RESUMEN" styleClass="section-kicker"/>
+            <Label fx:id="statsTotales" text="0 ítems" styleClass="stat-primary"/>
+            <Label fx:id="statsTipos" wrapText="true" maxWidth="185" styleClass="stat-label"/>
+            <Label fx:id="statsEstados" wrapText="true" maxWidth="185" styleClass="stat-label"/>
+            <Label fx:id="statsPrestamos" wrapText="true" maxWidth="185" styleClass="stat-label"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Label text="DATOS" styleClass="section-kicker"/>
+            <Button text="Importar CSV" maxWidth="Infinity" onAction="#importarCsv" styleClass="sidebar-button"/>
+            <Button text="Exportar CSV" maxWidth="Infinity" onAction="#exportarCsv" styleClass="sidebar-button"/>
+            <Label text="La colección se guarda automáticamente en este equipo." wrapText="true" maxWidth="185" styleClass="sidebar-note"/>
+        </VBox>
+    </left>
+    <center>
+        <VBox spacing="16" styleClass="content">
+            <padding><Insets top="26" right="28" bottom="24" left="28"/></padding>
+            <HBox alignment="CENTER_LEFT" spacing="20">
+                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                    <Label text="Mi colección" styleClass="page-title"/>
+                    <Label text="Busca, organiza y presta tus ítems." styleClass="page-subtitle"/>
+                </VBox>
+                <Button text="+ Nuevo ítem" onAction="#nuevo" styleClass="primary-button"/>
+            </HBox>
+
+            <VBox spacing="12" styleClass="filter-card">
+                <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <TextField fx:id="busqueda" promptText="Buscar por título, notas o reseña" HBox.hgrow="ALWAYS" onAction="#buscar"/>
+                    <ComboBox fx:id="filtroTipo" promptText="Todos los tipos" prefWidth="155"/>
+                    <ComboBox fx:id="filtroEstado" promptText="Todos los estados" prefWidth="160"/>
+                    <Button text="Buscar" onAction="#buscar" styleClass="secondary-button"/>
+                </HBox>
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <TextField fx:id="calificacionMin" promptText="Nota mín." prefColumnCount="4"/>
+                    <TextField fx:id="calificacionMax" promptText="Nota máx." prefColumnCount="4"/>
+                    <TextField fx:id="anioMin" promptText="Año desde" prefColumnCount="5"/>
+                    <TextField fx:id="anioMax" promptText="Año hasta" prefColumnCount="5"/>
+                    <TextField fx:id="filtroEtiquetas" promptText="Etiquetas separadas por comas" HBox.hgrow="ALWAYS"/>
+                    <ComboBox fx:id="orden" prefWidth="180"/>
+                </HBox>
+                <HBox spacing="18" alignment="CENTER_LEFT">
+                    <CheckBox fx:id="soloPrestados" text="Solo prestados"/>
+                    <CheckBox fx:id="soloVencidos" text="Solo vencidos"/>
+                    <Button text="Limpiar filtros" onAction="#limpiarFiltros" styleClass="link-button"/>
+                </HBox>
+            </VBox>
+
+            <VBox spacing="0" styleClass="table-card" VBox.vgrow="ALWAYS">
+                <TableView fx:id="tabla" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="columnaTitulo" text="Título" prefWidth="245"/>
+                        <TableColumn fx:id="columnaTipo" text="Tipo" prefWidth="105"/>
+                        <TableColumn fx:id="columnaAnio" text="Año" prefWidth="65"/>
+                        <TableColumn fx:id="columnaEstado" text="Estado" prefWidth="115"/>
+                        <TableColumn fx:id="columnaCalificacion" text="Nota" prefWidth="60"/>
+                        <TableColumn fx:id="columnaEtiquetas" text="Etiquetas" prefWidth="170"/>
+                        <TableColumn fx:id="columnaPrestamo" text="Préstamo" prefWidth="115"/>
+                    </columns>
+                    <placeholder><Label text="No hay ítems que coincidan. Crea uno nuevo o cambia los filtros."/></placeholder>
+                </TableView>
+                <HBox spacing="10" alignment="CENTER_LEFT" styleClass="action-bar">
+                    <padding><Insets top="12" right="14" bottom="12" left="14"/></padding>
+                    <Button text="Ver / editar" onAction="#editar" styleClass="secondary-button"/>
+                    <Button text="Eliminar" onAction="#eliminar" styleClass="danger-button"/>
+                    <Button text="Prestar" onAction="#prestar" styleClass="secondary-button"/>
+                    <Button fx:id="botonDevolver" text="Devolver" onAction="#devolver" styleClass="secondary-button"/>
+                    <Button text="Historial" onAction="#verHistorial" styleClass="link-button"/>
+                </HBox>
+            </VBox>
+
+            <Label fx:id="detalleLabel" text="Selecciona un ítem para ver su detalle." wrapText="true" styleClass="selection-detail"/>
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <Button fx:id="botonAnterior" text="Anterior" onAction="#paginaAnterior" styleClass="secondary-button"/>
+                <Button fx:id="botonSiguiente" text="Siguiente" onAction="#paginaSiguiente" styleClass="secondary-button"/>
+                <Label fx:id="paginaLabel" text="Página 1"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="estadoLabel" wrapText="true" maxWidth="430" styleClass="status-label"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coleccion.ui.ItemFormController" styleClass="dialog-root">
+    <top>
+        <VBox spacing="6" styleClass="dialog-header">
+            <padding><Insets top="22" right="24" bottom="16" left="24"/></padding>
+            <Label fx:id="tituloVentana" text="Nuevo ítem" styleClass="dialog-title"/>
+            <Label text="Completa los datos principales y los de su categoría." styleClass="page-subtitle"/>
+            <Label fx:id="errorLabel" wrapText="true" managed="false" visible="false" styleClass="error-label"/>
+        </VBox>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="form-scroll">
+            <VBox spacing="16">
+                <padding><Insets top="4" right="24" bottom="20" left="24"/></padding>
+                <VBox spacing="12" styleClass="form-section">
+                    <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                    <Label text="Información principal" styleClass="form-section-title"/>
+                    <GridPane hgap="12" vgap="8">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="30"/>
+                            <ColumnConstraints percentWidth="70" hgrow="ALWAYS"/>
+                        </columnConstraints>
+                        <Label text="Título *" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <TextField fx:id="titulo" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS"/>
+                        <Label text="Tipo *" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="tipo" maxWidth="Infinity" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                        <Label text="Estado *" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="estado" maxWidth="Infinity" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                        <Label text="Año" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <TextField fx:id="anio" promptText="Ej. 2024" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                        <Label text="Adquisición" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                        <DatePicker fx:id="fechaAdquisicion" maxWidth="Infinity" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                        <Label text="Precio pagado" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                        <TextField fx:id="precio" promptText="0.00" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                        <Label text="Calificación" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                        <TextField fx:id="calificacion" promptText="Del 1 al 10" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                        <Label text="Etiquetas" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                        <TextField fx:id="etiquetas" promptText="fantasía, favorito" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+                        <Label text="Portada local" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
+                        <HBox spacing="8" GridPane.rowIndex="8" GridPane.columnIndex="1">
+                            <TextField fx:id="portada" promptText="Ruta de imagen opcional" HBox.hgrow="ALWAYS"/>
+                            <Button text="Elegir" onAction="#elegirPortada" styleClass="secondary-button"/>
+                        </HBox>
+                    </GridPane>
+                </VBox>
+                <VBox spacing="12" styleClass="form-section">
+                    <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                    <Label text="Detalle de categoría" styleClass="form-section-title"/>
+                    <VBox fx:id="detalleContenedor"/>
+                </VBox>
+                <VBox spacing="12" styleClass="form-section">
+                    <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                    <Label text="Notas personales" styleClass="form-section-title"/>
+                    <Label text="Notas"/>
+                    <TextArea fx:id="notas" prefRowCount="3" wrapText="true"/>
+                    <Label text="Reseña corta"/>
+                    <TextArea fx:id="resena" prefRowCount="3" wrapText="true"/>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT" styleClass="dialog-footer">
+            <padding><Insets top="14" right="24" bottom="18" left="24"/></padding>
+            <Button text="Cancelar" cancelButton="true" onAction="#cancelar" styleClass="secondary-button"/>
+            <Button text="Guardar ítem" defaultButton="true" onAction="#guardar" styleClass="primary-button"/>
+        </HBox>
+    </bottom>
+</BorderPane>

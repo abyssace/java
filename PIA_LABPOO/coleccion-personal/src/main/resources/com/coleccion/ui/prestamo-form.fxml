@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coleccion.ui.PrestamoFormController" styleClass="dialog-root">
+    <top>
+        <VBox spacing="6" styleClass="dialog-header">
+            <padding><Insets top="22" right="24" bottom="16" left="24"/></padding>
+            <Label text="Prestar ítem" styleClass="dialog-title"/>
+            <Label text="Solo puede existir un préstamo activo por ítem." styleClass="page-subtitle"/>
+            <Label fx:id="errorLabel" wrapText="true" managed="false" visible="false" styleClass="error-label"/>
+        </VBox>
+    </top>
+    <center>
+        <GridPane hgap="12" vgap="12">
+            <padding><Insets top="8" right="24" bottom="20" left="24"/></padding>
+            <columnConstraints><ColumnConstraints percentWidth="32"/><ColumnConstraints percentWidth="68"/></columnConstraints>
+            <Label text="Persona *" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="amigo" promptText="Nombre de tu amigo o amiga" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <Label text="Fecha de préstamo *" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <DatePicker fx:id="fechaPrestamo" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <Label text="Fecha límite *" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <DatePicker fx:id="fechaLimite" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        </GridPane>
+    </center>
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT" styleClass="dialog-footer">
+            <padding><Insets top="14" right="24" bottom="18" left="24"/></padding>
+            <Button text="Cancelar" cancelButton="true" onAction="#cancelar" styleClass="secondary-button"/>
+            <Button text="Registrar préstamo" defaultButton="true" onAction="#guardar" styleClass="primary-button"/>
+        </HBox>
+    </bottom>
+</BorderPane>
