@@ -2,7 +2,7 @@
 
 ## Enfoque elegido
 
-Se reutiliza de los laboratorios 12 y 13 la organización de un CRUD en modelo, persistencia, servicio e interfaz. La tecnología cambia deliberadamente a **JavaFX + JDBC puro + SQLite**, tal como exige `prompt_coleccion_personal.md`.
+Se reutiliza de los laboratorios 12 y 13 la organización de un CRUD en modelo, persistencia, servicio e interfaz. La tecnología cambia deliberadamente a **JavaFX + JDBC puro + SQLite**.
 
 Se consideraron tres modelos:
 
